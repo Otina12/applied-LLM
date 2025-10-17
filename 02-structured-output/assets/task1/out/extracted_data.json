@@ -1,0 +1,11 @@
+{
+  "name": "Lisbon",
+  "country": "Portugal",
+  "population": 505000,
+  "landmarks": [
+    "Belém Tower",
+    "Jerónimos Monastery"
+  ],
+  "official_language": "Portuguese",
+  "average_summer_temperature": 27.0
+}

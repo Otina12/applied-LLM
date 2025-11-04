@@ -1,212 +1,212 @@
 [
   {
-    "id": "pos_chunk_00014",
-    "query_code": "func (d *Download) IsRangeable() bool {\n\treturn d.info.Rangeable\n}",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
+    "id": "neg_002",
+    "query_code": "package main\nfunc ReverseString(s string) string {\n    r := []rune(s)\n    for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {\n        r[i], r[j] = r[j], r[i]\n    }\n    return string(r)\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
   },
   {
-    "id": "pos_chunk_00009",
-    "query_code": "func (d *Download) Size() uint64 {\n\treturn atomic.LoadUint64(&d.size)\n}",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
+    "id": "neg_005",
+    "query_code": "package main\nfunc Fibonacci(n int) int {\n    if n <= 1 {\n        return n\n    }\n    return Fibonacci(n-1) + Fibonacci(n-2)\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
   },
   {
-    "id": "pos_chunk_00012",
-    "query_code": "func (d *Download) TotalCost() time.Duration {\n\treturn time.Now().Sub(d.startedAt)\n}",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
+    "id": "neg_013",
+    "query_code": "package main\nfunc CountEven(nums []int) int {\n    count := 0\n    for _, v := range nums {\n        if v%2 == 0 {\n            count++\n        }\n    }\n    return count\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
   },
   {
     "id": "pos_chunk_00010",
     "query_code": "func (d *Download) Speed() uint64 {\n\treturn (atomic.LoadUint64(&d.size) - atomic.LoadUint64(&d.lastSize)) / d.Interval * 1000\n}",
-    "label": 1,
+    "is_positive": true,
     "source_hint": "got\\download.go",
     "notes": "renamed vars, removed comments, small reorder"
-  },
-  {
-    "id": "pos_chunk_00008",
-    "query_code": "func (d *Download) TotalSize() uint64 {\n\treturn d.info.Size\n}",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
-  },
-  {
-    "id": "neg_003",
-    "query_code": "package main\nfunc UniqueInts(nums []int) []int {\n    m := make(map[int]struct{})\n    out := make([]int, 0, len(nums))\n    for _, v := range nums {\n        if _, ok := m[v]; !ok {\n            m[v] = struct{}{}\n            out = append(out, v)\n        }\n    }\n    return out\n}",
-    "label": 0,
-    "source_hint": null,
-    "notes": "manually written different Go function"
   },
   {
     "id": "neg_004",
     "query_code": "package main\nfunc Factorial(n int) int {\n    if n == 0 {\n        return 1\n    }\n    return n * Factorial(n-1)\n}",
-    "label": 0,
-    "source_hint": null,
-    "notes": "manually written different Go function"
-  },
-  {
-    "id": "neg_011",
-    "query_code": "package main\nfunc ToUpperCase(s string) string {\n    result := \"\"\n    for _, c := range s {\n        if c >= 'a' && c <= 'z' {\n            result += string(c - 32)\n        } else {\n            result += string(c)\n        }\n    }\n    return result\n}",
-    "label": 0,
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
     "id": "neg_001",
     "query_code": "package main\nfunc SumSlice(nums []int) int {\n    s := 0\n    for _, x := range nums {\n        s += x\n    }\n    return s\n}",
-    "label": 0,
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00011",
+    "query_code": "func (d *Download) AvgSpeed() uint64 {\n\n\treturn 0\n\n\t\treturn uint64(atomic.LoadUint64(&d.size) / uint64(totalMills) * 1000)\n\tif totalMills := d.TotalCost().Milliseconds(); totalMills > 0 {\n\t}\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_010",
+    "query_code": "package main\nfunc WordCount(s string) int {\n    words := 0\n    inWord := false\n    for _, c := range s {\n        if c == ' ' || c == '\n' || c == '\t' {\n            inWord = false\n        } else if !inWord {\n            words++\n            inWord = true\n        }\n    }\n    return words\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00008",
+    "query_code": "func (d *Download) TotalSize() uint64 {\n\treturn d.info.Size\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00014",
+    "query_code": "func (d *Download) IsRangeable() bool {\n\treturn d.info.Rangeable\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
   },
   {
     "id": "pos_chunk_00003",
-    "query_code": "func (d *Download) GetInfoOrDownload() (*Info, error) {\n\n\t\treturn &Info{}, e\n\t\t\t\t}, nil\n\tif req, e = NewRequest(d.ctx, \"GET\", d.URL, append(d.Header, GotHeader{\"Range\", \"bytes=0-0\"})); e != nil {\n\tdefer dest.Close()\n\t\t}\n\t)\n\tdefer res.Body.Close()\n\tif dest, e = os.Create(d.Path()); e != nil {\n\t\t\t\t\tRangeable: true,\n\t}\n\tvar (\n}\n\n\t\n\t\n\t\t\tif length, e := strconv.ParseUint(l[1], 10, 64); e == nil {\n\td.unsafeName = res.Header.Get(\"content-disposition\")\n\n\n\t\treturn &Info{}, e\n\n\t\treturn &Info{}, fmt.Errorf(\"Response status code is not ok: %d\", res.StatusCode)\n\t\t\t\t\tSize:      length,\n\n\t}\n\n\tif res, e = d.Client.Do(req); e != nil {\n\t\tdest *os.File\n\t\t\t}\n\t}\n\t\treturn &Info{}, e\n\n\n\treturn &Info{}, nil\n\t\treturn &Info{}, e\n\t\n\t}\n\t\te  error\n\t\treq  *http.Request\n\t\treturn &Info{}, fmt.Errorf(\"Response includes content-range header which is invalid: %s\", cr)\n\t\tif len(l) == 2 {\n\t}\n\t\tres  *http.Response\n\t\tl := strings.Split(cr, \"/\")\n\tif res.StatusCode >= 300 {\n\t\t\t\treturn &Info{\n\n\n\t}\n\tif _, e = io.Copy(dest, io.TeeReader(res.Body, d)); e != nil {\n\t\t\n\tif cr := res.Header.Get(\"content-range\"); cr != \"\" && res.ContentLength == 1 {",
-    "label": 1,
+    "query_code": "func (d *Download) GetInfoOrDownload() (*Info, error) {\n\n\t\treturn &Info{}, e\n\t\t\n\t}\n\tif cr := res.Header.Get(\"content-range\"); cr != \"\" && res.ContentLength == 1 {\n\n\t\t\t\t\tSize:      length,\n\t\treq  *http.Request\n}\n\t}\n\t\treturn &Info{}, fmt.Errorf(\"Response status code is not ok: %d\", res.StatusCode)\n\t\tl := strings.Split(cr, \"/\")\n\t\tres  *http.Response\n\t\treturn &Info{}, e\n\n\t\t\t\t\tRangeable: true,\n\treturn &Info{}, nil\n\n\t\te  error\n\tdefer dest.Close()\n\t}\n\t\n\t\t}\n\t)\n\t\t\t\treturn &Info{\n\t}\n\n\tif res.StatusCode >= 300 {\n\n\n\t\t\t\t}, nil\n\t}\n\t\n\tvar (\n\n\t\n\t\treturn &Info{}, fmt.Errorf(\"Response includes content-range header which is invalid: %s\", cr)\n\tif _, e = io.Copy(dest, io.TeeReader(res.Body, d)); e != nil {\n\t\t\t}\n\tdefer res.Body.Close()\n\t\tif len(l) == 2 {\n\t\t\tif length, e := strconv.ParseUint(l[1], 10, 64); e == nil {\n\tif req, e = NewRequest(d.ctx, \"GET\", d.URL, append(d.Header, GotHeader{\"Range\", \"bytes=0-0\"})); e != nil {\n\t\treturn &Info{}, e\n\t\treturn &Info{}, e\n\t\tdest *os.File\n\tif res, e = d.Client.Do(req); e != nil {\n\n\n\td.unsafeName = res.Header.Get(\"content-disposition\")\n\n\tif dest, e = os.Create(d.Path()); e != nil {\n\t}",
+    "is_positive": true,
     "source_hint": "got\\download.go",
     "notes": "renamed vars, removed comments, small reorder"
   },
   {
-    "id": "pos_chunk_00004",
-    "query_code": "func (d *Download) Init() (e error) {\n\n\t\n\t}\n\treturn nil\n\t}\n\n\t\td.Concurrency = getDefaultConcurrency()\n\t\td.ctx = context.Background()\n\t\t}\n\tchunksLen := d.info.Size / d.ChunkSize\n\n\tif d.ctx == nil {\n\t\tchunk.Start = (d.ChunkSize * idx) + idx\n\t}\n\t\n\t\tchunk := new(Chunk)\n\t\td.Client = DefaultClient\n\tif d.Concurrency == 0 {\n\t\t\tchunk.End = d.info.Size - 1\n\tif d.Client == nil {\n\t\td.ChunkSize = getDefaultChunkSize(d.info.Size, d.MinChunkSize, d.MaxChunkSize, uint64(d.Concurrency))\n\tif d.info.Rangeable == false {\n\td.chunks = make([]*Chunk, 0, chunksLen)\n\n}\n\n\n\tfor idx := uint64(0); idx < chunksLen; idx++ {\n\t\n\t}\n\t\n\tif d.info, e = d.GetInfoOrDownload(); e != nil {\n\t}\n\t\n\n\n\n\td.startedAt = time.Now()\n\n\t\tif chunk.End >= d.info.Size || idx == chunksLen-1 {\n\t\n\t\td.chunks = append(d.chunks, chunk)\n\t\treturn e\n\tif d.ChunkSize == 0 {\n\n\t\treturn nil\n\t\n\t\n\t}\n\n\t\t\tbreak\n\t\tchunk.End = chunk.Start + d.ChunkSize\n\n\t\t\t\n\t}",
-    "label": 1,
+    "id": "pos_chunk_00015",
+    "query_code": "func (d *Download) dl(dest io.WriterAt, errC chan error) {\n\n\t\t\t}\n\t\t\t<-max\n\t\twg.Add(1)\n\n\t\t}(idx)\n}\n\n\t\tmax <- 1\n\n\t\t\tdefer wg.Done()\n\n\t}\n\t)\n\tfor idx := 0; idx < len(d.chunks); idx++ {\n\tvar (\n\t\twg sync.WaitGroup\n\terrC <- nil\n\t\tmax = make(chan int, d.Concurrency)\n\n\t\t\n\t\t\tif e := d.DownloadChunk(d.chunks[idx], &OffsetWriter{dest, int64(d.chunks[idx].Start)}); e != nil {\n\n\t\t\t\terrC <- e\n\t\tgo func(idx int) {\n\twg.Wait()\n\t\t\t\treturn",
+    "is_positive": true,
     "source_hint": "got\\download.go",
     "notes": "renamed vars, removed comments, small reorder"
   },
   {
-    "id": "neg_014",
-    "query_code": "package main\nfunc Contains(nums []int, target int) bool {\n    for _, v := range nums {\n        if v == target {\n            return true\n        }\n    }\n    return false\n}",
-    "label": 0,
+    "id": "neg_009",
+    "query_code": "package main\nfunc BubbleSort(arr []int) []int {\n    n := len(arr)\n    for i := 0; i < n; i++ {\n        for j := 0; j < n-i-1; j++ {\n            if arr[j] > arr[j+1] {\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n            }\n        }\n    }\n    return arr\n}",
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
-  },
-  {
-    "id": "pos_chunk_00007",
-    "query_code": "func (d *Download) Context() context.Context {\n\treturn d.ctx\n}",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
-  },
-  {
-    "id": "pos_chunk_00005",
-    "query_code": "func (d *Download) Start() (e error) {\n\t\n\treturn\n\t\t}\n\t\treturn e\n\n\tfile, e := os.Create(d.Path())\n\t\tselect {\n\n\tgo d.dl(file, errs)\n\tfile.Truncate(int64(d.TotalSize()))\n\t}\n\t\te = d.ctx.Err()\n\terrs := make(chan error, 1)\n\tdefer file.Close()\n\t\tdefault:\n\n\tif e != nil {\n\n\t}\n\t\t\treturn nil\n\n\tcase e = <-errs:\n\t\n\t\n\t}\n\t\tcase <-d.ctx.Done():\n\tif d.info.Rangeable == false {\n\tcase <-d.ctx.Done():\n}\n\t\t\treturn d.ctx.Err()\n\n\t\n\tselect {",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
   },
   {
     "id": "neg_008",
     "query_code": "package main\nfunc IsPalindrome(s string) bool {\n    r := []rune(s)\n    for i := 0; i < len(r)/2; i++ {\n        if r[i] != r[len(r)-1-i] {\n            return false\n        }\n    }\n    return true\n}",
-    "label": 0,
-    "source_hint": null,
-    "notes": "manually written different Go function"
-  },
-  {
-    "id": "neg_002",
-    "query_code": "package main\nfunc ReverseString(s string) string {\n    r := []rune(s)\n    for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {\n        r[i], r[j] = r[j], r[i]\n    }\n    return string(r)\n}",
-    "label": 0,
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
     "id": "neg_007",
     "query_code": "package main\nfunc CountVowels(s string) int {\n    count := 0\n    for _, c := range s {\n        switch c {\n        case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':\n            count++\n        }\n    }\n    return count\n}",
-    "label": 0,
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
-    "id": "neg_010",
-    "query_code": "package main\nfunc WordCount(s string) int {\n    words := 0\n    inWord := false\n    for _, c := range s {\n        if c == ' ' || c == '\n' || c == '\t' {\n            inWord = false\n        } else if !inWord {\n            words++\n            inWord = true\n        }\n    }\n    return words\n}",
-    "label": 0,
+    "id": "neg_014",
+    "query_code": "package main\nfunc Contains(nums []int, target int) bool {\n    for _, v := range nums {\n        if v == target {\n            return true\n        }\n    }\n    return false\n}",
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
-    "id": "neg_009",
-    "query_code": "package main\nfunc BubbleSort(arr []int) []int {\n    n := len(arr)\n    for i := 0; i < n; i++ {\n        for j := 0; j < n-i-1; j++ {\n            if arr[j] > arr[j+1] {\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n            }\n        }\n    }\n    return arr\n}",
-    "label": 0,
+    "id": "pos_chunk_00012",
+    "query_code": "func (d *Download) TotalCost() time.Duration {\n\treturn time.Now().Sub(d.startedAt)\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00007",
+    "query_code": "func (d *Download) Context() context.Context {\n\treturn d.ctx\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_006",
+    "query_code": "package main\nfunc FindMax(nums []int) int {\n    max := nums[0]\n    for _, v := range nums {\n        if v > max {\n            max = v\n        }\n    }\n    return max\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00006",
+    "query_code": "func (d *Download) RunProgress(fn ProgressFunc) {\n\n\t}\n\n\t\tfn(d)\n\tsleepd := time.Duration(d.Interval) * time.Millisecond\n\t\t\tbreak\n\t\tif d.StopProgress {\n\n\t\ttime.Sleep(sleepd)\n\t\n\t\tcase <-d.ctx.Done():\n\t\tatomic.StoreUint64(&d.lastSize, atomic.LoadUint64(&d.size))\n\tif d.Interval == 0 {\n\t\t\treturn\n\t}\n\t\t\n\n\n\tfor {\n\t\tselect {\n}\n\t\t}\n\t\tdefault:\n\t\td.Interval = uint64(400 / runtime.NumCPU())\n\n\t\t\n\n\t\t}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00009",
+    "query_code": "func (d *Download) Size() uint64 {\n\treturn atomic.LoadUint64(&d.size)\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_011",
+    "query_code": "package main\nfunc ToUpperCase(s string) string {\n    result := \"\"\n    for _, c := range s {\n        if c >= 'a' && c <= 'z' {\n            result += string(c - 32)\n        } else {\n            result += string(c)\n        }\n    }\n    return result\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00005",
+    "query_code": "func (d *Download) Start() (e error) {\n\t\n\t\n\tselect {\n\tgo d.dl(file, errs)\n\t}\n\treturn\n\n\t}\n\t\t}\n\tif d.info.Rangeable == false {\n\terrs := make(chan error, 1)\n\n\tdefer file.Close()\n\tif e != nil {\n\t\tselect {\n\n\tfile.Truncate(int64(d.TotalSize()))\n\tcase e = <-errs:\n\t\n\t\tdefault:\n\t\n\tfile, e := os.Create(d.Path())\n}\n\t}\n\t\treturn e\n\t\t\treturn d.ctx.Err()\n\t\te = d.ctx.Err()\n\t\t\treturn nil\n\n\n\n\t\tcase <-d.ctx.Done():\n\tcase <-d.ctx.Done():",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_015",
+    "query_code": "package main\nfunc MergeSlices(a, b []int) []int {\n    merged := make([]int, 0, len(a)+len(b))\n    merged = append(merged, a...)\n    merged = append(merged, b...)\n    return merged\n}",
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
     "id": "neg_012",
     "query_code": "package main\nfunc Average(nums []float64) float64 {\n    sum := 0.0\n    for _, v := range nums {\n        sum += v\n    }\n    return sum / float64(len(nums))\n}",
-    "label": 0,
-    "source_hint": null,
-    "notes": "manually written different Go function"
-  },
-  {
-    "id": "pos_chunk_00015",
-    "query_code": "func (d *Download) dl(dest io.WriterAt, errC chan error) {\n\n\tvar (\n\t}\n\t\t\t\treturn\n\n\n\t\t\tdefer wg.Done()\n\n\n\t)\n\tfor idx := 0; idx < len(d.chunks); idx++ {\n\t\t\t\n\t\twg.Add(1)\n\t\t\tif e := d.DownloadChunk(d.chunks[idx], &OffsetWriter{dest, int64(d.chunks[idx].Start)}); e != nil {\n\t\t\t}\n\t\t\n\n\t\tgo func(idx int) {\n\n\t\t\t<-max\n\t\tmax = make(chan int, d.Concurrency)\n\t\t\n\t\twg sync.WaitGroup\n}\n\twg.Wait()\n\terrC <- nil\n\t\tmax <- 1\n\n\t\t\t\terrC <- e\n\t\t}(idx)",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
-  },
-  {
-    "id": "neg_005",
-    "query_code": "package main\nfunc Fibonacci(n int) int {\n    if n <= 1 {\n        return n\n    }\n    return Fibonacci(n-1) + Fibonacci(n-2)\n}",
-    "label": 0,
-    "source_hint": null,
-    "notes": "manually written different Go function"
-  },
-  {
-    "id": "pos_chunk_00013",
-    "query_code": "func (d *Download) Write(b []byte) (int, error) {\n\tcount := len(b)\n\tatomic.AddUint64(&d.size, uint64(count))\n\treturn count, nil\n}",
-    "label": 1,
-    "source_hint": "got\\download.go",
-    "notes": "renamed vars, removed comments, small reorder"
-  },
-  {
-    "id": "neg_013",
-    "query_code": "package main\nfunc CountEven(nums []int) int {\n    count := 0\n    for _, v := range nums {\n        if v%2 == 0 {\n            count++\n        }\n    }\n    return count\n}",
-    "label": 0,
-    "source_hint": null,
-    "notes": "manually written different Go function"
-  },
-  {
-    "id": "neg_006",
-    "query_code": "package main\nfunc FindMax(nums []int) int {\n    max := nums[0]\n    for _, v := range nums {\n        if v > max {\n            max = v\n        }\n    }\n    return max\n}",
-    "label": 0,
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
     "id": "pos_chunk_00002",
-    "query_code": "func TestChunksLength(t *testing.T) {\n\n\n\tif d.chunks[0].Start != 0 {\n\tchunk0 := Chunk{\n\t}\n\t}\n\t\treturn\n\td := &Download{\n\n\n\t\tt.Errorf(\"First chunk should start from 0, but got %d\", d.chunks[0].Start)\n\tif chunk0.End != d.chunks[0].End {\n\t\tStart: 5242871,\n\n\tchunk1 := Chunk{\n\tif d.chunks[1].Start != 5242871 {\n\t\tt.Error(e)\n\t\tMinChunkSize: 5242870,\n\n\t}\n\n\tif chunk1.End != d.chunks[1].End {\n\t\tt.Errorf(\"Chunk 1 expecting: %d but got: %d\", chunk1.End, d.chunks[1].End)\n\t}\n\n\t\tURL:          \"https:\n\n\t\tt.Errorf(\"Second chunk should start from: 5242871, but got %d\", d.chunks[1].Start)\n\t\tStart: 0,\n\tif d.info.Rangeable == false {\n\t}\n\t\tt.Errorf(\"Chunk 0 expecting: %d but got: %d\", chunk0.End, d.chunks[0].End)\n\t}\n\t\n\tif e := d.Init(); e != nil {\n\t\tEnd:   10485759,\n\t\tEnd:   5242870,\n\n\t}\n\n\t\treturn\n\n\t}\n\t\tt.Errorf(\"Chunk information could not be retrieved for the test file: %s\", d.URL)\n\t\n\n\n\t}\n}",
-    "label": 1,
+    "query_code": "func TestChunksLength(t *testing.T) {\n\n\t\tt.Error(e)\n\t}\n\tif chunk1.End != d.chunks[1].End {\n\t}\n\t\tt.Errorf(\"Chunk 1 expecting: %d but got: %d\", chunk1.End, d.chunks[1].End)\n\tif chunk0.End != d.chunks[0].End {\n\n\tif d.info.Rangeable == false {\n\n\t\tt.Errorf(\"Chunk 0 expecting: %d but got: %d\", chunk0.End, d.chunks[0].End)\n\t\tMinChunkSize: 5242870,\n\n\n\n\tif d.chunks[0].Start != 0 {\n\t}\n\t\tEnd:   5242870,\n\tif e := d.Init(); e != nil {\n\tchunk1 := Chunk{\n\t}\n\t}\n\tchunk0 := Chunk{\n\t}\n\t\treturn\n\n\n\td := &Download{\n\t\n\t\tt.Errorf(\"Chunk information could not be retrieved for the test file: %s\", d.URL)\n\n\n\t\n\t\tStart: 5242871,\n\t\tURL:          \"https:\n\n\n\t\tEnd:   10485759,\n\t\tt.Errorf(\"Second chunk should start from: 5242871, but got %d\", d.chunks[1].Start)\n\t\tStart: 0,\n\t}\n\t\treturn\n\t}\n\n\t\tt.Errorf(\"First chunk should start from 0, but got %d\", d.chunks[0].Start)\n\tif d.chunks[1].Start != 5242871 {\n\n\t}\n}",
+    "is_positive": true,
     "source_hint": "got\\chunks_test.go",
     "notes": "renamed vars, removed comments, small reorder"
   },
   {
-    "id": "neg_015",
-    "query_code": "package main\nfunc MergeSlices(a, b []int) []int {\n    merged := make([]int, 0, len(a)+len(b))\n    merged = append(merged, a...)\n    merged = append(merged, b...)\n    return merged\n}",
-    "label": 0,
+    "id": "pos_chunk_00013",
+    "query_code": "func (d *Download) Write(b []byte) (int, error) {\n\tcount := len(b)\n\tatomic.AddUint64(&d.size, uint64(count))\n}\n\treturn count, nil",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_003",
+    "query_code": "package main\nfunc UniqueInts(nums []int) []int {\n    m := make(map[int]struct{})\n    out := make([]int, 0, len(nums))\n    for _, v := range nums {\n        if _, ok := m[v]; !ok {\n            m[v] = struct{}{}\n            out = append(out, v)\n        }\n    }\n    return out\n}",
+    "is_positive": false,
     "source_hint": null,
     "notes": "manually written different Go function"
   },
   {
-    "id": "pos_chunk_00006",
-    "query_code": "func (d *Download) RunProgress(fn ProgressFunc) {\n\n\t\ttime.Sleep(sleepd)\n\t\t\tbreak\n\n}\n\tfor {\n\n\n\t\t}\n\t}\n\t\tcase <-d.ctx.Done():\n\t\t\n\t\td.Interval = uint64(400 / runtime.NumCPU())\n\tsleepd := time.Duration(d.Interval) * time.Millisecond\n\t\t\treturn\n\n\t\t\n\t\t\n\t\tselect {\n\t\tdefault:\n\t\tatomic.StoreUint64(&d.lastSize, atomic.LoadUint64(&d.size))\n\t\t\n\n\tif d.Interval == 0 {\n\n\t\n\n\t}\n\t\t}\n\t\tif d.StopProgress {\n\t\tfn(d)",
-    "label": 1,
+    "id": "pos_chunk_00004",
+    "query_code": "func (d *Download) Init() (e error) {\n\n\t\n\tif d.info.Rangeable == false {\n\t\t\t\n\t}\n\n\t\n\tchunksLen := d.info.Size / d.ChunkSize\n\t\n\n\tif d.Client == nil {\n\treturn nil\n\t\td.chunks = append(d.chunks, chunk)\n\td.startedAt = time.Now()\n\t\tchunk.Start = (d.ChunkSize * idx) + idx\n\tif d.info, e = d.GetInfoOrDownload(); e != nil {\n\t\n\td.chunks = make([]*Chunk, 0, chunksLen)\n\n\t\t\tchunk.End = d.info.Size - 1\n\t}\n\t\treturn e\n\t}\n\tif d.ctx == nil {\n\tif d.ChunkSize == 0 {\n\t\n\t}\n\t\tchunk.End = chunk.Start + d.ChunkSize\n\t}\n\t\td.Concurrency = getDefaultConcurrency()\n}\n\t\tif chunk.End >= d.info.Size || idx == chunksLen-1 {\n\t\td.ChunkSize = getDefaultChunkSize(d.info.Size, d.MinChunkSize, d.MaxChunkSize, uint64(d.Concurrency))\n\n\t}\n\n\t\td.ctx = context.Background()\n\t\n\n\n\t}\n\t\n\t\tchunk := new(Chunk)\n\n\tfor idx := uint64(0); idx < chunksLen; idx++ {\n\t\td.Client = DefaultClient\n\n\n\n\t\treturn nil\n\tif d.Concurrency == 0 {\n\t\t}\n\t\n\n\t\t\tbreak",
+    "is_positive": true,
     "source_hint": "got\\download.go",
     "notes": "renamed vars, removed comments, small reorder"
   },
   {
     "id": "pos_chunk_00001",
-    "query_code": "func (dst *OffsetWriter) Write(b []byte) (count int, e error) {\n\tcount, e = dst.WriteAt(b, dst.offset)\n\n\treturn\n\tdst.offset += int64(count)\n\n}\ntype Chunk struct {\n\tStart, End uint64\n}",
-    "label": 1,
+    "query_code": "func (dst *OffsetWriter) Write(b []byte) (count int, e error) {\n\tcount, e = dst.WriteAt(b, dst.offset)\ntype Chunk struct {\n\n}\n\treturn\n\tdst.offset += int64(count)\n\n\tStart, End uint64\n}",
+    "is_positive": true,
     "source_hint": "got\\chunk.go",
-    "notes": "renamed vars, removed comments, small reorder"
-  },
-  {
-    "id": "pos_chunk_00011",
-    "query_code": "func (d *Download) AvgSpeed() uint64 {\n\n\tif totalMills := d.TotalCost().Milliseconds(); totalMills > 0 {\n\n}\n\t\treturn uint64(atomic.LoadUint64(&d.size) / uint64(totalMills) * 1000)\n\treturn 0\n\t}",
-    "label": 1,
-    "source_hint": "got\\download.go",
     "notes": "renamed vars, removed comments, small reorder"
   }
 ]

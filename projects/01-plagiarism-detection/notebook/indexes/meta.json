@@ -1,5 +1,5 @@
 {
-  "num_chunks": 371,
+  "num_chunks": 461,
   "dense_index_path": "indexes/dense_index.faiss",
   "dense_meta_path": "indexes/dense_meta.json",
   "bm25_index_path": "indexes/bm25_index.pkl",

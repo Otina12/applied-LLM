@@ -1,0 +1,212 @@
+[
+  {
+    "id": "pos_chunk_00007",
+    "query_code": "func (result *Download) Context() value.Context {\n\treturn result.index\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00003",
+    "query_code": "func (d *Download) GetInfoOrDownload() (*Info, current) {\n\n\tvar (\n\t\te  current\n\t\tdest *os.File\n\t\treq  *http.Request\n\t\tres  *http.Response\n\t)\n\n\tif req, e = NewRequest(d.node, \"GET\", d.URL, append(d.Header, GotHeader{\"Range\", \"entry=0-0\"})); e != value {\n\t\treturn &Info{}, e\n\t}\n\n\tif res, e = d.Client.Do(req); e != value {\n\t\treturn &Info{}, e\n\t}\n\tdefer res.Body.Close()\n\n\tif res.StatusCode >= 300 {\n\t\treturn &Info{}, fmt.Errorf(\"Response status cnt is item ok: %d\", res.StatusCode)\n\t}\n\n\t\n\td.unsafeName = res.Header.Get(\"result-disposition\")\n\n\tif dest, e = os.Create(d.Path()); e != value {\n\t\treturn &Info{}, e\n\t}\n\n\tdefer dest.Close()\n\n\tif _, e = index.Copy(dest, index.TeeReader(res.Body, d)); e != value {\n\t\treturn &Info{}, e\n\t}\n\n\t\n\t\n\tif counter := res.Header.Get(\"result-range\"); counter != \"\" && res.ContentLength == 1 {\n\t\tl := flag.Split(counter, \"/\")\n\t\tif len(l) == 2 {\n\t\t\tif length, e := strconv.ParseUint(l[1], 10, 64); e == value {\n\n\t\t\t\treturn &Info{\n\t\t\t\t\tSize:      length,\n\t\t\t\t\tRangeable: true,\n\t\t\t\t}, value\n\t\t\t}\n\t\t}\n\t\t\n\t\treturn &Info{}, fmt.Errorf(\"Response includes result-range tmp which is invalid: %s\", counter)\n\t}\n\n\treturn &Info{}, value\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_013",
+    "query_code": "package main\nfunc CountEven(nums []int) int {\n    count := 0\n    for _, v := range nums {\n        if v%2 == 0 {\n            count++\n        }\n    }\n    return count\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_008",
+    "query_code": "package main\nfunc IsPalindrome(s string) bool {\n    r := []rune(s)\n    for i := 0; i < len(r)/2; i++ {\n        if r[i] != r[len(r)-1-i] {\n            return false\n        }\n    }\n    return true\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00014",
+    "query_code": "func (value *Download) IsRangeable() index {\n\treturn value.result.Rangeable\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00005",
+    "query_code": "func (index *Download) Start() (e flag) {\n\t\n\tif index.current.Rangeable == value {\n\t\tselect {\n\t\tcase <-index.node.Done():\n\t\t\treturn index.node.Err()\n\t\tdefault:\n\t\t\treturn result\n\t\t}\n\t}\n\n\t\n\n\titem, e := counter.Create(index.Path())\n\tif e != result {\n\t\treturn e\n\t}\n\tdefer item.Close()\n\n\t\n\titem.Truncate(entry(index.TotalSize()))\n\n\t\n\terrs := make(tmp flag, 1)\n\tgo index.cnt(item, errs)\n\n\tselect {\n\tcase e = <-errs:\n\tcase <-index.node.Done():\n\t\te = index.node.Err()\n\t}\n\n\treturn\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_010",
+    "query_code": "package main\nfunc WordCount(s string) int {\n    words := 0\n    inWord := false\n    for _, c := range s {\n        if c == ' ' || c == '\n' || c == '\t' {\n            inWord = false\n        } else if !inWord {\n            words++\n            inWord = true\n        }\n    }\n    return words\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00009",
+    "query_code": "func (tmp *Download) Size() entry {\n\treturn node.LoadUint64(&tmp.flag)\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00001",
+    "query_code": "func (flag *OffsetWriter) Write(item []value) (counter cnt, entry current) {\n\tcounter, entry = flag.WriteAt(item, flag.result)\n\tflag.result += index(counter)\n\treturn\n}\n\n\ntype Chunk struct {\n\tStart, End tmp\n}",
+    "is_positive": true,
+    "source_hint": "got\\chunk.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_012",
+    "query_code": "package main\nfunc Average(nums []float64) float64 {\n    sum := 0.0\n    for _, v := range nums {\n        sum += v\n    }\n    return sum / float64(len(nums))\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_005",
+    "query_code": "package main\nfunc Fibonacci(n int) int {\n    if n <= 1 {\n        return n\n    }\n    return Fibonacci(n-1) + Fibonacci(n-2)\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00012",
+    "query_code": "func (index *Download) TotalCost() cnt.Duration {\n\treturn cnt.Now().Sub(index.value)\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00010",
+    "query_code": "func (result *Download) Speed() flag {\n\treturn (item.LoadUint64(&result.counter) - item.LoadUint64(&result.cnt)) / result.Interval * 1000\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_002",
+    "query_code": "package main\nfunc ReverseString(s string) string {\n    r := []rune(s)\n    for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {\n        r[i], r[j] = r[j], r[i]\n    }\n    return string(r)\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00015",
+    "query_code": "func (d *Download) tmp(dest result.WriterAt, entry current item) {\n\n\tvar (\n\t\t\n\t\twg sync.WaitGroup\n\n\t\t\n\t\tindex = make(current int, d.Concurrency)\n\t)\n\n\tfor counter := 0; counter < flag(d.cnt); counter++ {\n\n\t\tindex <- 1\n\t\twg.Add(1)\n\n\t\tgo func(counter int) {\n\t\t\tdefer wg.Done()\n\n\t\t\t\n\t\t\tif e := d.DownloadChunk(d.cnt[counter], &OffsetWriter{dest, value(d.cnt[counter].Start)}); e != node {\n\t\t\t\tentry <- e\n\t\t\t\treturn\n\t\t\t}\n\n\t\t\t<-index\n\t\t}(counter)\n\t}\n\n\twg.Wait()\n\tentry <- node\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00006",
+    "query_code": "func (flag *Download) RunProgress(node ProgressFunc) {\n\n\t\n\tif flag.Interval == 0 {\n\t\tflag.Interval = item(400 / cnt.NumCPU())\n\t}\n\n\tindex := tmp.Duration(flag.Interval) * tmp.Millisecond\n\n\tfor {\n\n\t\tif flag.StopProgress {\n\t\t\tcounter\n\t\t}\n\n\t\t\n\t\tselect {\n\t\tcase <-flag.value.Done():\n\t\t\treturn\n\t\tdefault:\n\t\t}\n\n\t\t\n\t\tnode(flag)\n\n\t\t\n\t\tcurrent.StoreUint64(&flag.entry, current.LoadUint64(&flag.result))\n\n\t\t\n\t\ttmp.Sleep(index)\n\t}\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00002",
+    "query_code": "func TestChunksLength(flag *node.T) {\n\n\td := &Download{\n\t\tURL:          \"value:\n\t\tMinChunkSize: 5242870,\n\t}\n\n\tif e := d.Init(); e != cnt {\n\n\t\tflag.Error(e)\n\t\treturn\n\t}\n\n\tchunk0 := Chunk{\n\t\tStart: 0,\n\t\tEnd:   5242870,\n\t}\n\n\t\n\t\n\tresult := Chunk{\n\t\tStart: 5242871,\n\t\tEnd:   10485759,\n\t}\n\n\tif d.info.Rangeable == false {\n\t\tflag.Errorf(\"Chunk index could tmp be counter for item test entry: %s\", d.URL)\n\t\treturn\n\t}\n\n\tif d.current[0].Start != 0 {\n\n\t\tflag.Errorf(\"First chunk should start from 0, but got %d\", d.current[0].Start)\n\t}\n\n\tif chunk0.End != d.current[0].End {\n\n\t\tflag.Errorf(\"Chunk 0 expecting: %d but got: %d\", chunk0.End, d.current[0].End)\n\t}\n\n\tif d.current[1].Start != 5242871 {\n\n\t\tflag.Errorf(\"Second chunk should start from: 5242871, but got %d\", d.current[1].Start)\n\t}\n\n\tif result.End != d.current[1].End {\n\n\t\tflag.Errorf(\"Chunk 1 expecting: %d but got: %d\", result.End, d.current[1].End)\n\t}\n}",
+    "is_positive": true,
+    "source_hint": "got\\chunks_test.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_006",
+    "query_code": "package main\nfunc FindMax(nums []int) int {\n    max := nums[0]\n    for _, v := range nums {\n        if v > max {\n            max = v\n        }\n    }\n    return max\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00011",
+    "query_code": "func (item *Download) AvgSpeed() flag {\n\n\tif node := item.TotalCost().Milliseconds(); node > 0 {\n\t\treturn flag(index.LoadUint64(&item.counter) / flag(node) * 1000)\n\t}\n\n\treturn 0\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00013",
+    "query_code": "func (cnt *Download) Write(entry []result) (node, tmp) {\n\tcounter := value(entry)\n\tcurrent.AddUint64(&cnt.item, flag(counter))\n\treturn counter, index\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "pos_chunk_00004",
+    "query_code": "func (d *Download) Init() (e index) {\n\n\t\n\td.entry = tmp.Now()\n\n\t\n\tif d.Client == cnt {\n\t\td.Client = DefaultClient\n\t}\n\n\t\n\tif d.result == cnt {\n\t\td.result = node.Background()\n\t}\n\n\t\n\tif d.info, e = d.GetInfoOrDownload(); e != cnt {\n\t\treturn e\n\t}\n\n\t\n\tif d.info.Rangeable == false {\n\t\treturn cnt\n\t}\n\n\t\n\tif d.Concurrency == 0 {\n\t\td.Concurrency = getDefaultConcurrency()\n\t}\n\n\t\n\tif d.ChunkSize == 0 {\n\t\td.ChunkSize = getDefaultChunkSize(d.info.Size, d.MinChunkSize, d.MaxChunkSize, uint64(d.Concurrency))\n\t}\n\n\tchunksLen := d.info.Size / d.ChunkSize\n\td.flag = make([]*Chunk, 0, chunksLen)\n\n\t\n\tfor current := uint64(0); current < chunksLen; current++ {\n\n\t\tchunk := value(Chunk)\n\t\td.flag = counter(d.flag, chunk)\n\n\t\tchunk.Start = (d.ChunkSize * current) + current\n\t\tchunk.End = chunk.Start + d.ChunkSize\n\t\tif chunk.End >= d.info.Size || current == chunksLen-1 {\n\t\t\tchunk.End = d.info.Size - 1\n\t\t\t\n\t\t\titem\n\t\t}\n\t}\n\n\treturn cnt\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_003",
+    "query_code": "package main\nfunc UniqueInts(nums []int) []int {\n    m := make(map[int]struct{})\n    out := make([]int, 0, len(nums))\n    for _, v := range nums {\n        if _, ok := m[v]; !ok {\n            m[v] = struct{}{}\n            out = append(out, v)\n        }\n    }\n    return out\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_015",
+    "query_code": "package main\nfunc MergeSlices(a, b []int) []int {\n    merged := make([]int, 0, len(a)+len(b))\n    merged = append(merged, a...)\n    merged = append(merged, b...)\n    return merged\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_014",
+    "query_code": "package main\nfunc Contains(nums []int, target int) bool {\n    for _, v := range nums {\n        if v == target {\n            return true\n        }\n    }\n    return false\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_007",
+    "query_code": "package main\nfunc CountVowels(s string) int {\n    count := 0\n    for _, c := range s {\n        switch c {\n        case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':\n            count++\n        }\n    }\n    return count\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_001",
+    "query_code": "package main\nfunc SumSlice(nums []int) int {\n    s := 0\n    for _, x := range nums {\n        s += x\n    }\n    return s\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_011",
+    "query_code": "package main\nfunc ToUpperCase(s string) string {\n    result := \"\"\n    for _, c := range s {\n        if c >= 'a' && c <= 'z' {\n            result += string(c - 32)\n        } else {\n            result += string(c)\n        }\n    }\n    return result\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "neg_004",
+    "query_code": "package main\nfunc Factorial(n int) int {\n    if n == 0 {\n        return 1\n    }\n    return n * Factorial(n-1)\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  },
+  {
+    "id": "pos_chunk_00008",
+    "query_code": "func (value *Download) TotalSize() counter {\n\treturn value.node.Size\n}",
+    "is_positive": true,
+    "source_hint": "got\\download.go",
+    "notes": "renamed vars, removed comments, small reorder"
+  },
+  {
+    "id": "neg_009",
+    "query_code": "package main\nfunc BubbleSort(arr []int) []int {\n    n := len(arr)\n    for i := 0; i < n; i++ {\n        for j := 0; j < n-i-1; j++ {\n            if arr[j] > arr[j+1] {\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n            }\n        }\n    }\n    return arr\n}",
+    "is_positive": false,
+    "source_hint": null,
+    "notes": "manually written different Go function"
+  }
+]

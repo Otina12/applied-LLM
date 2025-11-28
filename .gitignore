@@ -9,6 +9,11 @@ __pycache__/
 build/
 dist/
 
+# Generated files (from projects/01-plagiarism-detection)
+*.go
+*.pkl
+*.faiss
+
 # Virtual environment (if created in repo)
 venv/
 env/

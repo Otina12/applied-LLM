@@ -75,7 +75,7 @@ Hard rules:
 6. Do not add new packages, new commands, or new environments.
 7. Do not change proper nouns, product names, or company names.
 8. Do not change time statements such as "currently" or "previously" unless the original text already implies that.
-9. Keep length controlled. Aim for within plus or minus 25 percent of the input segment length, unless the input is extremely short.
+9. Keep character length controlled. Aim for within plus or minus 10 percent of the input segment length, unless the input is extremely short.
 10. Avoid empty claims. Prefer specific responsibilities and outcomes that already exist in the text.
 
 Optimization goals:

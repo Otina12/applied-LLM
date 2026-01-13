@@ -1,0 +1,315 @@
+%-------------------------------------------------------------------------------------------------
+% LaTeX Resume for Professionals
+% Author : Rodrigo Zanini
+% License : CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+%-------------------------------------------------------------------------------------------------
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{fontawesome}
+\usepackage{xcolor}
+\usepackage{calc}
+
+\usepackage[cm,headings]{fullpage}
+
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=primary,
+}
+%-------------------------------------------------------------------------------------------------
+%---------- CUSTOM COMMANDS
+%-------------------------------------------------------------------------------------------------
+%---------- Icons
+\newcommand{\icon}[1]{\begin{tabular}{p{\iconWidth}}{#1}\end{tabular}}
+\renewcommand{\section}[2]{\vspace{0.5em}\color{primary}\textbf{{#2}{#1}}\hrule\color{black}}
+
+%---------- Head
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\cvText}[1]{#1\vspace{0.75em}}
+
+%---------- Entries
+% Entry with Name, Time, Position, Location and Details
+\newcommand{\cvEntryNTPLD}[5]{
+    \begin{itemize}[leftmargin=\entryMargin]
+        \item[]
+            \begin{tabularx}{\textwidth-\entryMargin}{Xr}
+                \textbf{\color{black}#1} & {\color{secondary}\small#2} \\
+                \textit{\color{secondary}\small#3} & \textit{\color{secondary}\small#4} \\
+            \end{tabularx}\vspace{-0.75em}
+        \begin{itemize}[labelsep=\entryMargin-1.5em,leftmargin=\entryMargin]
+            \small#5
+        \end{itemize}
+    \end{itemize}
+}
+% Entry with Name, Time, Position and Location
+\newcommand{\cvEntryNTPL}[4]{
+    \begin{itemize}[leftmargin=\entryMargin]
+        \item[]
+            \begin{tabularx}{\textwidth-\entryMargin}{Xr}
+                \textbf{\color{black}#1} & {\color{secondary}\small#2} \\
+                \textit{\color{secondary}\small#3} & \textit{\color{secondary}\small#4} \\
+            \end{tabularx}\vspace{-0.75em}
+    \end{itemize}
+}
+% Entry with Name, Time and Details
+\newcommand{\cvEntryNTD}[3]{
+    \begin{itemize}[leftmargin=\entryMargin]
+        \item[]
+            \begin{tabularx}{\textwidth-\entryMargin}{Xr}
+                \textbf{\color{black}#1} & {\color{secondary}\small#2} \\
+            \end{tabularx}\vspace{-0.75em}
+        \begin{itemize}[labelsep=\entryMargin-1.5em,leftmargin=\entryMargin]
+            \small#3
+        \end{itemize}
+    \end{itemize}
+}
+% Entry with Name and Details
+\newcommand{\cvEntryND}[1]{
+    \small
+    \begin{itemize}[leftmargin=\entryMargin]
+        #1
+    \end{itemize}
+    \normalsize
+}
+% Entry for Languages (up to 4)
+\newcommand{\cvItemL}[8]{
+    \item[]
+        \begin{tabularx}{\textwidth-\entryMargin}{XXXX}
+            {\textbf{#1} \textit{#2}}&{\textbf{#3} \textit{#4}}&{\textbf{#5} \textit{#6}}&{\textbf{#7} \textit{#8}}
+        \end{tabularx}\vspace{-0.25em}
+}
+% Entry for Academical Projects
+\newcommand{\cvEntryAcademicalNTD}[3]{\cvEntryNTD{\educationIcon{Academical: }#1}{#2}{#3}}
+% Entry for Personal Projects
+\newcommand{\cvEntryPersonalNTD}[3]{\cvEntryNTD{\personalIcon{Personal: }#1}{#2}{#3}}
+% Entry for Work Projects
+\newcommand{\cvEntryWorkNTD}[3]{\cvEntryNTD{\workIcon{Work: }#1}{#2}{#3}}
+
+% Bullet point under an entry's details list
+\newcommand{\cvItem}[1]{\item[\bulletIcon]{#1\vspace{-0.25em}}}
+% Special bullet point under an entry's details list
+\newcommand{\cvItemS}[1]{\item[\accentIcon]{#1\vspace{-0.25em}}}
+% Bulletless point under an entry's details list, with Name and Description 
+\newcommand{\cvItemND}[2]{\item[]{\textbf{#1}\hspace{1em}#2}\vspace{-0.25em}}
+
+%-------------------------------------------------------------------------------------------------
+%---------- SETTINGS HERE
+%-------------------------------------------------------------------------------------------------
+%---------- Colours
+\definecolor{primary}{HTML}{007BFF}
+\definecolor{secondary}{HTML}{3C454D}
+\definecolor{info}{HTML}{17A2B8}
+
+%---------- Margins
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\voffset}{-0.5cm}
+\setlength{\headheight}{3.5em}
+\addtolength{\headsep}{-2em}
+\addtolength{\oddsidemargin}{-0.25cm}
+\addtolength{\evensidemargin}{-0.25cm}
+\addtolength{\headwidth}{0.5cm}
+\addtolength{\textwidth}{0.5cm}
+
+%---------- Entries
+\def \entryMargin{1em}
+
+%---------- Icons
+\def \iconWidth{1.5em}
+% Predefined icons, based on FontAwesome.
+% see https://ctan.mirror.rafal.ca/fonts/fontawesome/doc/fontawesome.pdf for more options.
+\def \linkedinIcon{\icon{\faLinkedin}}
+\def \phoneIcon{\icon{\faPhone}}
+\def \homeIcon{\icon{\faHome}}
+\def \emailIcon{\icon{\faEnvelope}}
+\def \githubIcon{\icon{\faGithub}}
+\def \websiteIcon{\icon{\faGlobe}}
+
+\def \educationIcon{\icon{\faGraduationCap}}
+\def \workIcon{\icon{\faBriefcase}}
+\def \projectsIcon{\icon{\faFlask}}
+\def \communicationIcon{\icon{\faComments}}
+\def \awardsIcon{\icon{\faTrophy}}
+\def \skillsIcon{\icon{\faGears}}
+\def \interestsIcon{\icon{\faGamepad}}
+
+\def \expertIcon{\icon{\faStar}}
+\def \proficientIcon{\icon{\faStarHalfFull}}
+\def \noviceIcon{\icon{\faStarO}}
+\def \personalIcon{\icon{\faUser}}
+
+\def \bulletIcon{\icon{\faAngleRight}}
+\def \accentIcon{\icon{\faAngleDoubleRight}} % \faCaretRight \faAngleDoubleRight \faCode
+
+
+%-------------------------------------------------------------------------------------------------
+%---------- DATA HERE
+%-------------------------------------------------------------------------------------------------
+%---------- Header data
+\def \name{John Doe}
+\def \nameSuffix{ENG}
+\def \subtitleText{Machine Learning Specialist}
+\def \summaryText{Backend focused .NET developer with strong experience in building scalable APIs, financial systems, and internal platforms. Experienced in designing clean architectures, working with cloud services, and improving system reliability and performance. Comfortable working in cross functional teams and owning features end to end.}
+
+\def \linkedinLink{https://www.linkedin.com/}
+\def \linkedinText{/john-doe}
+
+\def \phoneText{514-555-5555}
+
+\def \homeText{J0J 0J0}
+
+\def \emailLink{mailto:john.doe@something.com}
+\def \emailText{john.doe@something.com}
+
+\def \githubLink{https://github.com/john-doe}
+\def \githubText{/john-doe}
+
+\def \websiteLink{https://en.wikipedia.org/wiki/John_Doe}
+\def \websiteText{JOHN DOE}
+
+%---------- Header format
+\def \fullName{\textbf{\huge\name}\large\hspace{0.3em}\textit{\nameSuffix}}
+\def \subtitle{\textit{\small\cvText{\subtitleText}}}
+\def \summary{\cvText{\summaryText}}
+\def \linkedin{\small\linkedinIcon\href{\linkedinLink}{\linkedinText}}
+\def \phone{\small\phoneIcon{\phoneText}}
+\def \home{\small\homeIcon{\homeText}}
+\def \email{\small\emailIcon\href{\emailLink}{\emailText}}
+\def \github{\small\githubIcon\href{\githubLink}{\githubText}}
+\def \website{\small\websiteIcon\href{\websiteLink}{\websiteText}}
+
+
+%-------------------------------------------------------------------------------------------------
+%---------- START
+%-------------------------------------------------------------------------------------------------
+\begin{document}
+%-------------------------------------------------------------------------------------------------
+%---------- HEADER
+%-------------------------------------------------------------------------------------------------
+\fancyhead[L]{
+    \begin{tabular}[c]{l}
+        {\fullName}\\
+        {\subtitle}
+    \end{tabular}
+    \vspace{-0.75em}
+}
+\fancyhead[R]{
+    \begin{tabular}[c]{l@{\hspace{1em}}l@{\hspace{1em}}l}
+        % Configure the order in which the header data appears. Must be in 3 colums.
+        {\phone} & {\github} & {\email} \\
+        {\home} & {\website} & {\linkedin}\\
+        \vspace{0.5em}
+    \end{tabular}
+    \vspace{-0.75em}
+}
+%-------------------------------------------------------------------------------------------------
+%---------- INTRODUCTION
+%-------------------------------------------------------------------------------------------------
+\summary\\ % Comment out if not using
+%-------------------------------------------------------------------------------------------------
+%---------- EDUCATION
+%-------------------------------------------------------------------------------------------------
+\section{Education}{\educationIcon}
+\cvEntryNTPL
+    {Free University}
+    {2020 -- 2024}
+    {BSc in Computer Science}
+    {Tbilisi, Georgia}
+
+\cvEntryNTPL
+    {Relevant Coursework}
+    {2020 -- 2024}
+    {Algorithms, Databases, Distributed Systems, Software Engineering}
+    {Academic}
+
+%-------------------------------------------------------------------------------------------------
+%---------- WORK EXPERIENCE
+%-------------------------------------------------------------------------------------------------
+\section{Work Experience}{\workIcon}
+\cvEntryNTPLD
+    {TBC Bank}
+    {Jan 2022 -- Present}
+    {Senior .NET Developer}
+    {Georgia}{
+    \cvItemS{C\#, .NET, ASP.NET Core, SQL Server, Azure, Docker, CI/CD}
+    \cvItem{Designed and maintained backend services for investment and banking products used by thousands of users}
+    \cvItem{Implemented REST APIs with authentication, authorization, and role based access control}
+    \cvItem{Worked closely with product owners and frontend teams to deliver business critical features}
+}
+\cvEntryNTPLD
+    {EPAM}
+    {Feb 2021 -- Jan 2022}
+    {Middle .NET Engineer}
+    {Georgia}{
+    \cvItemS{C\#, .NET, ASP.NET Core, AWS, Azure, PostgreSQL}
+    \cvItem{Worked on cloud based systems deployed on AWS and Azure}
+    \cvItem{Collaborated in distributed teams using Agile and Scrum processes}
+}
+\cvEntryNTPLD
+    {Saatec Ltd.}
+    {Mar 2019 -- Feb 2021}
+    {Junior Software Developer}
+    {Georgia}{
+    \cvItemS{C\#, .NET, SQL Server, WinForms, ASP.NET}
+    \cvItem{Developed internal tools and business applications for retail and e commerce systems}
+    \cvItem{Worked with relational databases and wrote complex SQL queries}
+}
+
+
+%-------------------------------------------------------------------------------------------------
+%---------- PROJECTS
+%-------------------------------------------------------------------------------------------------
+%\newpage %Uncomment if FIRST ITEM of this section is not entirely on this page
+\section{Projects}{\projectsIcon}
+\cvEntryAcademicalNTD
+    {Stock Portfolio Management System}
+    {2023}
+{
+    \cvItemS{C\#, .NET, REST APIs, SQL, Design Patterns}
+    \cvItem{Built a backend system to manage user portfolios, transactions, and asset history}
+    \cvItem{Implemented data validation, error handling, and basic analytics}
+}
+\cvEntryPersonalNTD
+    {Task Management and To Do Application}
+    {2022}
+{
+    \cvItemS{ASP.NET Core, Entity Framework, PostgreSQL, Docker}
+    \cvItem{Created a full CRUD backend with authentication and role management}
+    \cvItem{Designed database schema and API contracts from scratch}
+}
+
+%-------------------------------------------------------------------------------------------------
+%---------- SKILLS
+%-------------------------------------------------------------------------------------------------
+%\newpage %Uncomment if this section is not entirely on this page
+\section{Skills}{\skillsIcon}
+\cvEntryND{
+    \cvItemND{Languages}{C\#, SQL, Python, JavaScript}
+    \cvItemND{Backend}{.NET, ASP.NET Core, Web APIs, Entity Framework, Dapper}
+    \cvItemND{Databases}{SQL Server, PostgreSQL, Indexing, Query Optimization}
+    \cvItemND{Cloud and DevOps}{Azure, AWS, Docker, CI/CD pipelines}
+    \cvItemND{Architecture}{Clean Architecture, SOLID principles, Design Patterns}
+}
+
+
+%-------------------------------------------------------------------------------------------------
+%---------- INTERESTS
+%-------------------------------------------------------------------------------------------------
+%\newpage %Uncomment if this section is not entirely on this page
+\section{Interests}{\interestsIcon}
+\cvEntryND{
+    \cvItemND{Backend Systems}{Interested in scalable systems, performance tuning, and reliability}
+    \cvItemND{Distributed Systems}{Enjoy learning how large scale systems handle data and failures}
+    \cvItemND{Finance and Investing}{Interested in stock markets, trading platforms, and financial products}
+}
+
+
+\end{document}

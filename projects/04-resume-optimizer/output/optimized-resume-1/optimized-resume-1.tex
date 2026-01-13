@@ -1,0 +1,257 @@
+%-------------------------
+% Resume in Latex
+% Author : Vaishanth
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}%\setmainfont{Times New Roman}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+
+\definecolor{cvblue}{HTML}{0E5484}
+\definecolor{black}{HTML}{130810}
+\definecolor{darkcolor}{HTML}{0F4539}
+\definecolor{cvgreen}{HTML}{3BD80D}
+\definecolor{taggreen}{HTML}{00E278}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{darkcolor}
+\colorlet{heading}{darkcolor}
+\colorlet{headingrule}{cvblue}
+\colorlet{accent}{darkcolor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% \usepackage[T1]{fontenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{cochineal}
+% \usepackage{fourier}
+
+% \usepackage{fontspec}
+% \usepackage{polyglossia}
+% \setmainlanguage{german}
+% \setmainfont{Times New Roman}
+
+% serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% \pagestyle{fancy}
+% \fancyhf{}  % clear all header and footer fields
+% \fancyfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & \textbf{\small #2} \\
+      \textit{\large#3} & \textit{\small #4} \\
+      
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeSingleSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & \textbf{\small #2} \\
+      
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.1in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+%-------------------------------------------\usepackage{fontspec}
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+%----------HEADING----------
+
+
+\begin{center}
+    {\huge Test Person} \\ \vspace{2pt} 
+    {+1 (123) 456 7890} ~ 
+    \small{-}
+    \href{[https://www.google.com/]}{\color{blue}{Portfolio}} ~ 
+    \small{-}
+    \href{https://www.google.com/}{\color{blue}{xxxx@gmail.com}} ~ 
+    \small{-}
+    \href{[https://www.google.com/]}{ \color{blue}{linkedin.com/in/test}}  ~
+    \small{-}
+    \href{[https://www.google.com/]}{ \color{blue}{github.com/test}} ~
+    \vspace{-7pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{\color{airforceblue}EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Massachusetts Institute of Technology}{Cambridge, MA}
+      {Computer Science}{Sep 2021 - Jun 2025}
+  \resumeSubHeadingListEnd
+  \vspace{-10pt}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{\color{airforceblue}TECHNICAL SKILLS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{\normalsize{Programming Languages:}}{ \normalsize{Python, C++, C\#, Ocaml}} \\
+      \vspace{1.2pt}
+      
+     \textbf{\normalsize{Libraries and Tools:}}{ \normalsize{PyTorch, Sklearn, Pandas, Numpy, OpenCV, Git, Docker, Azure}} \\
+      \vspace{1.2pt}
+      
+     \textbf{\normalsize{ML Architectures:}}{ \normalsize{CNN, YOLO, Transformers(BERT, LSTM), RAFT}}
+
+     % copy and paste above textbf block to add more 
+     }}
+ \end{itemize}
+ \vspace{-16pt}
+ 
+ %-----------EXPERIENCE-----------
+\section{\color{airforceblue}WORK EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Engineer}{} 
+      {Tesla}{Jun 2025 - Present}
+      \resumeItemListStart
+            \resumeItem{\normalsize{Designed and implemented backend services for vehicle telemetry processing using Python and C\#, handling millions of events per day.}}
+            \resumeItem{\normalsize{Built scalable data ingestion pipelines using Azure Event Hubs and Azure Functions to process real-time sensor data in collaboration with cross-functional teams.}}  
+            \resumeItem{\normalsize{Wrote unit and integration tests, enforced code quality through code reviews, and implemented CI pipelines, ensuring collaboration and communication within the development team.}}  
+      \resumeItemListEnd  
+
+    \resumeSubheading
+      {Software Engineer Intern}{} 
+      {Jane Street}{Jun 2024 - Sep 2024}
+      \resumeItemListStart
+            \resumeItem{\normalsize{Developed infrastructure components for low latency trading in C++, adhering to strict performance and correctness requirements, while fostering collaboration in a team environment.}}
+            \resumeItem{\normalsize{Developed internal tooling in Python for analyzing trading signals and strategy performance, enhancing application design and supporting software development best practices.}}  
+            \resumeItem{\normalsize{Gained experience with Linux systems, profiling tools, and debugging complex concurrency issues.}}  
+      \resumeItemListEnd  
+
+    \resumeSubheading
+      {Co-Founder}{}
+      {Stealth Startup}{Feb 2022 - Nov 2024}
+      \resumeItemListStart
+            \resumeItem{\normalsize{Led the development of the initial product end to end, including backend APIs, data storage, and ML powered features, while collaborating with cross-functional teams and ensuring scalable solutions for insurance applications.}}
+            \resumeItem{\normalsize{Designed and trained computer vision models using PyTorch for real time image and video analysis.}}  
+            \resumeItem{\normalsize{Deployed scalable services using Docker and cloud infrastructure, managing authentication, monitoring, and logging to ensure reliable application performance.}}  
+      \resumeItemListEnd
+
+    % copy and paste above resumeSubheading block to add more 
+  \resumeSubHeadingListEnd
+\vspace{-12pt}
+
+
+ %-----------PROJECTS-----------
+\section{\color{airforceblue}PROJECTS}    
+    \resumeItemListStart
+        \vspace{0.5pt}
+        \resumeItem{\normalsize{\textbf{Autonomous Driving Perception System}, Implemented object detection and lane segmentation pipeline using YOLO and CNN based architectures.} \href{[url to project github repo]}{\color{blue}\underline{GitHub}}}
+        \vspace{-5pt}
+        
+        \resumeItem{\normalsize{\textbf{Algorithmic Trading Simulator}, Built a full backtesting engine in Python to simulate trading strategies on historical market data.} \href{[url to project demo]}{\color{blue}\underline{Try it!}}}
+        \vspace{-5pt}
+
+        \resumeItem{\normalsize{\textbf{Real Time Video Analytics Platform}, Developed a video processing system using OpenCV and deep learning models for object tracking.}  \href{[url to github repo]}{\color{blue}\underline{GitHub}}}
+        \vspace{-5pt}
+
+        \resumeItem{\normalsize{\textbf{Distributed ML Training Framework}, Built a framework for running ML experiments with configurable datasets, models, and metrics.} \href{[url to project demo]}{\color{blue}\underline{Try it!}}}
+
+        % copy and paste above resumeItem block to add more 
+        
+    \resumeItemListEnd  
+   
+ \vspace{-12pt}
+
+\end{document}

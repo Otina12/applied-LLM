@@ -1,0 +1,28 @@
+Description
+We are calling Robotics Software Engineers, Controls System Development Engineers or Firmware Engineers to join our In-House Controls team within World-Wide Central Engineering. This global role requires a dynamic individual eager to travel and lead the deployment of cutting-edge robotics automation solutions across our international network. The ideal candidate will have a continuous improvement mindset, demonstrate Bias for Action, and be prepared to lead robotics software development.
+
+
+
+About the team
+Our In-House Controls (IHC) team within World-Wide Central Engineering develops, deploys, and scales automated solutions globally. We deliver pioneering solutions that integrate seamlessly into existing and new facilities worldwide. IHC will develop and deploy the software for all future WW AMZL automation, from software design through to commissioning and deployment and operational on-call support. In this critical role, you'll straddle the cutting-edge worlds of robotics, software, and Amazon Logistics.
+
+The key benefits of our approach include:
+• Standardized, integrator-agnostic control systems for all AMZL automation, reducing the requirement to develop and maintain bespoke solutions for each piece of automation. We are breaking industry paradigms that every PLC based controls solution machine has a unique software.
+• Control of development, deployment, fault finding and future upgrades, removing dependency on external third party.
+• Generation of data and metrics to drive future improvements, removing dependency on vendors and ensuring comprehensive data collection. Leveraging Amazon AWS features and tools to improve our solutions.
+
+Basic Qualifications
+- Professional software/system development experience (non-internship).
+- Experience with designing and creating architecture for scalable systems using modern software design patterns.
+- Proficiency in at least one Object-Oriented programming (OOP) language; C++, C#, Java, Python, Ruby, etc,. Ideally CODESYS on top of it, providing that otherwise there is interest in learning CODESYS.
+- Strong problem-solving and troubleshooting abilities of Robotics/Controls systems, we are a hands on team.
+- Excellent communication skills across diverse cultural contexts, we operate across 3 continents and more than 7 countries.
+- Willingness to travel up to 30% accordingly with business needs.
+- Good writing skills, we need to document our software designs.
+
+Preferred Qualifications
+- Bachelor's degree in Computer Science or equivalent.
+- Experience with CODESYS development environment
+- Demonstrated track record of success in a science or engineering field, evidenced by outstanding projects, innovations, or advanced problem-solving.
+- Experience with full software development life cycle, including coding standards, code reviews, source control management, build processes, testing, and operations
+- Experience with building IOT solutions

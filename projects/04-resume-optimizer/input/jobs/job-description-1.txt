@@ -1,0 +1,41 @@
+Combined Ratio Solutions is an American company with multiple offices worldwide, engaged in the development of products for insurance companies. Our customers are large international companies, leaders in the insurance industry. We are looking for a Senior .Net Developer. You will be responsible for developing and designing front end web architecture, ensuring the responsiveness of applications, and working alongside graphic designers for web design features, among other duties.
+
+This is an excellent opportunity for someone who is looking to work and learn together with a highly motivated team. If you are motivated and results-driven, and enjoy working in a team environment, we`d like to meet you.
+
+Key Duties & Responsibilities:
+
+** Lead projects by applying software best practices and using modern technologies.
+** Implement features and deliver functionality on time, as planned in the sprint or project schedule.
+** Work closely with distributed teams to ensure effective communication and collaboration.
+** Participate in all stages of the software development lifecycle, including requirements analysis and solution design.
+** Be aware of the latest industry trends and technological innovations.
+** Perform the code review for other developers in a team.
+** Design and develop highly scalable solutions.
+
+Skills Required:
+
+** Educational degree in computer science.
+** Minimum of 5+ years of professional experience in software development, with a focus on .NET technologies.
+** Strong proficiency in .NET Core, with experience in C# development, RESTful API creation, and microservices architecture.
+** Experience with Angular (preferably Angular 8+), including TypeScript, RxJS, and Angular CLI, is beneficial. Familiarity with component-based architecture and state management is a plus.
+** Experience working with relational databases such as SQL Server, as well as familiarity with NoSQL databases like MongoDB or Azure Cosmos DB.
+** Hands-on experience with Microsoft Azure, with an emphasis on deploying and managing applications in a cloud environment.
+** Familiarity with containerization (e.g., Docker) and orchestration tools such as Kubernetes for application scaling and deployment.
+** Proficient in using Git.
+** Comfortable working in an Agile environment, with experience in Scrum methodologies.
+** Strong ability to analyze, design, and troubleshoot complex software applications and systems.
+** English B2+.
+** Excellent communication skills for collaboration with cross-functional teams, including product managers, designers, and other developers.
+
+What We Offer:
+
+** Learn new technologies and use them in practice.
+** Work with our distributed high-performance team.
+** Interesting and challenging projects.
+** Modern technologies.
+** Competitive salary.
+** Remote work format.
+** Medical health insurance
+** Refer-a-friend-to-work bonus.
+
+If you like wild growth and working with happy, enthusiastic over-achievers, you`ll enjoy your career with us!

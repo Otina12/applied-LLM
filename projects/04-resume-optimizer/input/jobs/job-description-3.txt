@@ -1,0 +1,45 @@
+Overview
+The GenAI Infrastructure and Solutions team is building large-scale GenAI training infrastructure, LLM-based solutions and tools. We provide the infrastructure for teams in CoreAI and other Microsoft Groups to fine-tune LLMs and serve agentic workload for their own scenarios. 
+
+ 
+
+As a Software Engineer II, you will work on the infrastructure and tools to support large scale model fine-tuning, evaluation, and inference. 
+
+Microsoft’s mission is to empower every person and every organization on the planet to achieve more. As employees we come together with a growth mindset, innovate to empower others, and collaborate to realize our shared goals. Each day we build on our values of respect, integrity, and accountability to create a culture of inclusion where everyone can thrive at work and beyond. 
+
+In alignment with our Microsoft values, we are committed to cultivating an inclusive work environment for all employees to positively impact our culture every day. 
+
+
+
+Responsibilities
+As a team member of our team, you will participate in developing innovative solutions across AI Platform. Responsibilities include the following.   
+
+ 
+
+Collaborate with senior engineers and researchers to build and optimize training infrastructure and tools for LLMs, SLMs, multimodal, and code-specific models.  
+
+Design, build and improve the services with high scalability and reliability.  
+
+Contribute to the deployment and monitoring of services in production environments. 
+
+Participate in the efforts to deliver and improve engineering systems and practices to ensure service quality in complex cloud environments.  
+
+
+
+Qualifications
+Required Qualifications: 
+
+Bachelor's Degree in Computer Science or related technical field AND 2+ years technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python OR equivalent experience. 
+ 
+Other Requirements:  
+Ability to meet Microsoft, customer and/or government security screening requirements are required for this role. These requirements include but are not limited to the following specialized security screenings: 
+Microsoft Cloud Background Check: This position will be required to pass the Microsoft Cloud background check upon hire/transfer and every two years thereafter. 
+ 
+Preferred Qualifications:
+
+2+ years of software development experience in C#, C++, Python, or similar languages.  
+1+ year of experience with containerization tools (e.g., Docker, Kubernetes). 
+Familiarity with production ML systems and concepts like model serving, caching, batching, and monitoring. 
+2+ years designing, developing, and shipping high quality software. 
+1+ years of experience with distributed systems and cloud-based infrastructure. 
+1+ year of experience with DevOps practices (CI/CD, automated testing, deployment, etc.).  

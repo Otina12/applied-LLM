@@ -150,6 +150,7 @@ Hard rules:
 3) Every segment.latex must be an exact substring of RESUME_TEX.
 4) When selecting a \resumeItem description, return the full second argument including braces, like {Description}.
 5) Do not return partial phrases for brace wrapped descriptions.
+6) Do not mark sentences that are under 5 words. Such senteces usually do not carry meaning and should not be marked.
 
 Selection rules:
 Pick up to 12 segments total.

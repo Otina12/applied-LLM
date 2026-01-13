@@ -111,6 +111,8 @@ Guidance:
 2. Keep facts unchanged.
 3. Add job aligned keywords only when truthful and compatible with the original.
 4. Prefer concrete phrasing over generic wording.
+5. Do not change a text if it's only 1 or 2 words. Only change full sentences.
+6. Always end sentences with a dot.
 
 Example input:
 {

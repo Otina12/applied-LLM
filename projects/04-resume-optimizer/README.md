@@ -95,7 +95,7 @@ Expected output should include:
 - a compiled PDF (`output/optimized-<resume_name>/optimized-<resume_name>.pdf`)
 
 You can compare existing sample resumes before and after optimization:
-- [resume-1](input\resumes\pdfs\resume-1.pdf) and [optimized-resume-1](output\optimized-resume-1\optimized-resume-1.pdf)
-- [resume-2](input\resumes\pdfs\resume-2.pdf) and [optimized-resume-2](output\optimized-resume-2\optimized-resume-2.pdf)
+- [resume-1](input/resumes/pdfs/resume-1.pdf) and [optimized-resume-1](output/optimized-resume-1/optimized-resume-1.pdf)
+- [resume-2](input/resumes/pdfs/resume-2.pdf) and [optimized-resume-2](output/optimized-resume-2/optimized-resume-2.pdf)
 
 Solution is not perfect and can have many edge cases.
